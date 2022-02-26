@@ -5,10 +5,9 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.motorcontrol.PWMSparkMax;
-//import frc.robot.Robot;
+
 
 public class DriveTrain extends SubsystemBase {
   /** Creates a new ExampleSubsystem. */
@@ -20,10 +19,11 @@ public class DriveTrain extends SubsystemBase {
     m_rightDrive.setInverted(true);
   }
 
+
   /**
    * 
-   * @param fwd the commanded forward movement
-   * @param rot the commanded rotation
+   * @param fwd
+   * @param rot
    */
   public void arcadeDrive(double fwd, double rot) {
     m_drive.arcadeDrive(fwd, rot);
@@ -35,6 +35,7 @@ public class DriveTrain extends SubsystemBase {
 
   @Override
   public void periodic() {
+    
     // This method will be called once per scheduler run
   }
 
@@ -43,7 +44,7 @@ public class DriveTrain extends SubsystemBase {
     // This method will be called once per scheduler run during simulation
   }
 
-public Object arcadeDrive(double y, double x, Joystick m_stick) {
+  /*public Object arcadeDrive(double y, double x, Joystick m_stick) {
     return null;
-}
+  }*/
 }

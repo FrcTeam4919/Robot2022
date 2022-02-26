@@ -17,9 +17,11 @@ import frc.robot.commands.RetractArm;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
 import frc.robot.commands.ShootStop;
-import frc.robot.commands.WinchWind;
-import frc.robot.commands.WinchUnwind;
 import frc.robot.commands.AutonomousCommand;
+import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.WinchUnwind;
+import frc.robot.commands.WinchRaise;
+import frc.robot.commands.DefaultDrive;
 
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeArm;
@@ -31,7 +33,7 @@ import frc.robot.subsystems.Hooks;
 import frc.robot.subsystems.Winch;
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.RunCommand;
+//import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.StartEndCommand;
 
 
@@ -62,8 +64,8 @@ public class RobotContainer {
   private final ShootStop m_shootStop = new ShootStop(m_shooter);
 
   private final Winch m_winch = new Winch();
-  private final WinchWind m_winchWind = new WinchWind(m_winch);
-  private final WinchUnwind m_winchUnwind = new WinchUnwind(m_winch);
+   private final WinchRaise m_winchWind = new WinchRaise(m_winch);
+   private final WinchUnwind m_winchUnwind = new WinchUnwind(m_winch);
 
   // Set up subsystems on toggle commands
   private final IntakeRoller m_roller = new IntakeRoller();
@@ -90,21 +92,20 @@ public class RobotContainer {
   private JoystickButton shootLow = new JoystickButton(m_stick, 2);
   private JoystickButton shootStop = new JoystickButton(m_stick, 10);
 
-  private JoystickButton winchForward = new JoystickButton(m_buttonBoard, 7);
-  private JoystickButton winchBackward = new JoystickButton(m_buttonBoard, 8);
+  private JoystickButton Winchwind = new JoystickButton(m_buttonBoard, 7);
+  private JoystickButton Winchunwind = new JoystickButton(m_buttonBoard, 8);
 
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
-    // Configure the button bindings
-    configureButtonBindings();
 
     m_drive.setDefaultCommand(
-      new RunCommand(
-        () ->
-        m_drive.arcadeDrive(m_stick.getY(), m_stick.getX(), m_stick))
-    );
+      new DefaultDrive(
+        m_drive, m_stick::getY, m_stick::getX));
+
+    // Configure the button bindings
+    configureButtonBindings();
     
   }
 
@@ -135,8 +136,8 @@ public class RobotContainer {
     climbingHooks.toggleWhenPressed(new StartEndCommand(m_hooks::extendHooks, m_hooks::retractHooks, m_hooks));
     
     // Winch
-    winchForward.whenPressed(m_winchWind);
-    winchBackward.whenPressed(m_winchUnwind);
+    Winchwind.whenHeld(m_winchWind);
+    Winchunwind.whenHeld(m_winchUnwind);
 
     
   }
