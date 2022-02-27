@@ -6,13 +6,13 @@ package frc.robot.commands;
 
 import frc.robot.subsystems.Shooter;
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import edu.wpi.first.wpilibj.Timer;
+//import edu.wpi.first.wpilibj.Timer;
 
 /** A high goal shoot command that uses shooter subsystem. */
 public class ShootHigh extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
   private final Shooter m_shooter;
-  private final Timer m_timer = new Timer();
+  //private final Timer m_timer = new Timer();
 
   /**
    * Creates a new high goal shoot command.
