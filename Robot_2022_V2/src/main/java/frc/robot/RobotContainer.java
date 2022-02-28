@@ -79,22 +79,20 @@ public class RobotContainer {
 
   // Set up Button Board Buttons and Joystick Buttons.
   
-  private JoystickButton intakeDeploy = new JoystickButton(m_stick, 3);
-  private JoystickButton intakeRetract = new JoystickButton(m_stick, 4);
+  private JoystickButton intakeDeploy = new JoystickButton(m_buttonBoard, 5);
+  private JoystickButton intakeRetract = new JoystickButton(m_buttonBoard, 2);
+  private JoystickButton intakeRoller = new JoystickButton(m_buttonBoard, 3);
+  private JoystickButton climbingHooks = new JoystickButton(m_buttonBoard,14);
 
-  private JoystickButton intakeRoller = new JoystickButton(m_stick, 7);
-  private JoystickButton climbingHooks = new JoystickButton(m_stick,8);
+  private JoystickButton beltAdvance  = new JoystickButton(m_buttonBoard, 4);
+  private JoystickButton beltReverse = new JoystickButton(m_buttonBoard, 1);
 
-  private JoystickButton beltAdvance  = new JoystickButton(m_stick, 11);
-  private JoystickButton beltReverse = new JoystickButton(m_stick, 12);
+  private JoystickButton shootHigh = new JoystickButton(m_buttonBoard, 8);
+  private JoystickButton shootLow = new JoystickButton(m_buttonBoard, 15);
+  private JoystickButton shootStop = new JoystickButton(m_buttonBoard, 6);
 
-  private JoystickButton shootHigh = new JoystickButton(m_stick, 1);
-  private JoystickButton shootLow = new JoystickButton(m_stick, 2);
-  private JoystickButton shootStop = new JoystickButton(m_stick, 10);
-
-  private JoystickButton Winchwind = new JoystickButton(m_buttonBoard, 7);
-  private JoystickButton Winchunwind = new JoystickButton(m_buttonBoard, 8);
-
+  private JoystickButton Winchwind = new JoystickButton(m_buttonBoard, 12);
+  private JoystickButton Winchunwind = new JoystickButton(m_buttonBoard, 16);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
