@@ -17,12 +17,12 @@ public class IntakeRoller extends SubsystemBase {
 
   
   public void pullBall() {
-    m_roller.set(0.5);
+    m_roller.set(-0.5);
     // Spins and pulls ball in toward intake.
   }
 
   public void pushBall() {
-    m_roller.set(-0.5);
+    m_roller.set(0.5);
     // Spins and pushes ball away from robot.
   }
  

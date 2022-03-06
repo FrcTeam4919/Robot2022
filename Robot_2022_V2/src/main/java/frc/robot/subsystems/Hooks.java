@@ -17,8 +17,8 @@ public class Hooks extends SubsystemBase {
   private final DoubleSolenoid m_intakeDoubleSolenoid = 
      new DoubleSolenoid(
         PneumaticsModuleType.CTREPCM,
-        Constants.IntakeConstants.kSolenoidPorts[4],
-        Constants.IntakeConstants.kSolenoidPorts[5]);
+        Constants.IntakeConstants.kSolenoidPorts[6],
+        Constants.IntakeConstants.kSolenoidPorts[7]);
 
   public Hooks() {
     

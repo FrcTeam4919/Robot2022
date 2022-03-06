@@ -17,8 +17,8 @@ public class Shooter extends SubsystemBase {
 
   public Shooter() {
     addChild("Shooter", m_shooter);
-    m_shooterRight.setInverted(true);
-    m_shooterLeft.setInverted(false);
+    m_shooterRight.setInverted(false);
+    m_shooterLeft.setInverted(true);
     
   }
 

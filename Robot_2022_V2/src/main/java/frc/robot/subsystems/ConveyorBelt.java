@@ -17,12 +17,12 @@ public class ConveyorBelt extends SubsystemBase {
 
   
   public void advanceBall() {
-    m_belt.set(0.5);
+    m_belt.set(-0.5);
     // Moves ball up conveyor belt toward shooter.
   }
 
   public void reverseBall() {
-    m_belt.set(-0.5);
+    m_belt.set(0.5);
     // Moves ball down conveyor belt toward intake.
   }
  

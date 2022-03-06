@@ -16,7 +16,7 @@ package frc.robot;
 public final class Constants {
     public static final class IntakeConstants {
        public static final int kSolenoidModule = 0;
-       public static final int[] kSolenoidPorts = new int[] {0, 1, 2, 3, 4, 5};
+       public static final int[] kSolenoidPorts = new int[] {0, 1, 2, 3, 4, 5, 6, 7};
         
     }
 }
