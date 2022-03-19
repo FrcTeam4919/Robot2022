@@ -26,7 +26,8 @@ public class ShootLow extends CommandBase {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-   m_shooter.lowGoal();
+   m_shooter.lowGoalRed();
+   //m_shooter.lowGoalBlue();
   }
 
   // Called every time the scheduler runs while the command is scheduled.

@@ -43,7 +43,8 @@ public class AutonomousCommand extends CommandBase {
     if (m_timer.get() < 3.0){
       m_drive.driveStraight();
     } else if (m_timer.get() < 12.0) {
-      m_shooter.lowGoal();
+      m_shooter.lowGoalRed();
+      //m_shooter.lowGoalBlue();
       //m_shooter.highGoal();
       if (m_timer.get() > 4.0) /*(m_timer.get() < 7.0)*/ {
         m_belt.advanceBall();
