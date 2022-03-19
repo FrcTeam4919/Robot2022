@@ -4,59 +4,40 @@
 
 package frc.robot.commands;
 
-import edu.wpi.first.wpilibj.Timer;
-import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.DriveTrain;
-import frc.robot.subsystems.ConveyorBelt;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
 /** An example command that uses an example subsystem. */
-public class AutonomousCommand extends CommandBase {
+public class NudgeDriveLeft extends CommandBase {
   @SuppressWarnings({"PMD.UnusedPrivateField", "PMD.SingularField"})
-  private final Shooter m_shooter;
   private final DriveTrain m_drive;
-  private final ConveyorBelt m_belt;
-  private final Timer m_timer = new Timer();
+
   /**
    * Creates a new ExampleCommand.
    *
    * @param subsystem The subsystem used by this command.
    */
-  public AutonomousCommand(DriveTrain drivetrain, Shooter shooter, ConveyorBelt conveyorbelt) {
-    m_drive = drivetrain;
-    m_shooter = shooter;
-    m_belt = conveyorbelt;
+  public NudgeDriveLeft(DriveTrain subsystem) {
+    m_drive = subsystem;
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(drivetrain, shooter, conveyorbelt);
+    addRequirements(subsystem);
   }
 
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    m_timer.reset();
-    m_timer.start();
+    m_drive.nudgeRight();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {
-    if (m_timer.get() < 3.0){
-      m_drive.driveStraight();
-    } else if (m_timer.get() < 12.0) {
-      m_shooter.lowGoal();
-      //m_shooter.highGoal();
-      if (m_timer.get() > 4.0) /*(m_timer.get() < 7.0)*/ {
-        m_belt.advanceBall();
-      }
-    } else if (m_timer.get() > 12.0) {
-      m_shooter.stop();
-      m_belt.stop();
-    }
-  }
+  public void execute() {}
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_drive.stop();
+  }
 
   // Returns true when the command should end.
   @Override

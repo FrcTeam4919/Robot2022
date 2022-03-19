@@ -17,7 +17,7 @@ public class Winch extends SubsystemBase {
 
   
   public void raise() {
-    m_winch.set(0.5);
+    m_winch.set(1);
     // Winds cable of winch, raising robot.
   }
 

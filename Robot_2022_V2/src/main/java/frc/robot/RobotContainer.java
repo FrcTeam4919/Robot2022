@@ -17,11 +17,14 @@ import frc.robot.commands.RetractArm;
 import frc.robot.commands.ShootHigh;
 import frc.robot.commands.ShootLow;
 import frc.robot.commands.ShootStop;
+import frc.robot.commands.ShootEject;
 import frc.robot.commands.AutonomousCommand;
 import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.WinchUnwind;
 import frc.robot.commands.WinchRaise;
 import frc.robot.commands.DefaultDrive;
+import frc.robot.commands.NudgeDriveLeft;
+import frc.robot.commands.NudgeDriveRight;
 
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeArm;
@@ -49,6 +52,8 @@ public class RobotContainer {
   private final ExampleCommand m_exampleCommand = new ExampleCommand(m_exampleSubsystem);
   
   private final DriveTrain m_drive = new DriveTrain();
+  private final NudgeDriveRight m_nudgeR = new NudgeDriveRight(m_drive);
+  private final NudgeDriveLeft m_nudgeL = new NudgeDriveLeft(m_drive);
 
   private final IntakeArm m_intake = new IntakeArm();
   private final DeployArm m_deployArm = new DeployArm(m_intake);
@@ -62,6 +67,7 @@ public class RobotContainer {
   private final ShootHigh m_shootHigh = new ShootHigh(m_shooter);
   private final ShootLow m_shootLow = new ShootLow(m_shooter);
   private final ShootStop m_shootStop = new ShootStop(m_shooter);
+  private final ShootEject m_eject = new ShootEject(m_shooter);
 
   private final Winch m_winch = new Winch();
    private final WinchRaise m_winchWind = new WinchRaise(m_winch);
@@ -90,9 +96,13 @@ public class RobotContainer {
   private JoystickButton shootHigh = new JoystickButton(m_buttonBoard, 8);
   private JoystickButton shootLow = new JoystickButton(m_buttonBoard, 15);
   private JoystickButton shootStop = new JoystickButton(m_buttonBoard, 6);
+  private JoystickButton shootEject = new JoystickButton(m_buttonBoard, 7);
 
   private JoystickButton Winchwind = new JoystickButton(m_buttonBoard, 12);
   private JoystickButton Winchunwind = new JoystickButton(m_buttonBoard, 16);
+
+  private JoystickButton NudgeLeft = new JoystickButton(m_stick, 3);
+  private JoystickButton NudgeRight = new JoystickButton(m_stick, 4);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
@@ -126,6 +136,7 @@ public class RobotContainer {
     shootHigh.whenActive(m_shootHigh);
     shootLow.whenPressed(m_shootLow);
     shootStop.whenPressed(m_shootStop);
+    shootEject.whenPressed(m_eject);
 
     // Toggle intake roller on and off.
     intakeRoller.toggleWhenPressed(new StartEndCommand(m_roller::pullBall, m_roller::stop, m_roller)); 
@@ -137,6 +148,8 @@ public class RobotContainer {
     Winchwind.whenHeld(m_winchWind);
     Winchunwind.whenHeld(m_winchUnwind);
 
+    NudgeLeft.whenHeld(m_nudgeL);
+    NudgeRight.whenHeld(m_nudgeR); 
     
   }
 

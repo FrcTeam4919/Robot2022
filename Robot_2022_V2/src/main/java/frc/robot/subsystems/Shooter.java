@@ -29,10 +29,14 @@ public class Shooter extends SubsystemBase {
   }
 
   public void lowGoal() {
-    m_shooter.set(0.5);
+    m_shooter.set(0.75);
     // Shoots ball into low goal.
   }
  
+  public void gentleEject() {
+    m_shooter.set(0.5);
+  }
+
   public void stop() {
     m_shooter.set(0);
   }

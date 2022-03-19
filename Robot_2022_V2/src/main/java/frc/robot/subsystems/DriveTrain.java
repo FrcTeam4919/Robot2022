@@ -26,11 +26,24 @@ public class DriveTrain extends SubsystemBase {
    * @param rot
    */
   public void arcadeDrive(double fwd, double rot) {
-    m_drive.arcadeDrive(fwd, rot);
+    m_drive.arcadeDrive(fwd, -rot);
   }
 
   public void driveStraight() {
-    m_drive.arcadeDrive(0.75, 0);
+    m_drive.arcadeDrive(-0.65, 0);
+  }
+
+  public void nudgeLeft() {
+    m_leftDrive.set(-0.2);
+  }
+
+  public void nudgeRight() {
+    m_rightDrive.set(-0.2);
+  }
+
+  public void stop() {
+    m_leftDrive.set(0);
+    m_rightDrive.set(0);
   }
 
   @Override
