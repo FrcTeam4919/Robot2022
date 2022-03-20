@@ -41,6 +41,9 @@ public class Shooter extends SubsystemBase {
     m_shooter.set(0.5);
   }
 
+  public void autonomousShoot() {
+    m_shooter.set(0.55);
+  }
   public void stop() {
     m_shooter.set(0);
   }

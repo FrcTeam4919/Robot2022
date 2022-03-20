@@ -19,6 +19,7 @@ import frc.robot.commands.ShootLow;
 import frc.robot.commands.ShootStop;
 import frc.robot.commands.ShootEject;
 import frc.robot.commands.AutonomousCommand;
+import frc.robot.commands.AutonomousCommandAlt;
 import frc.robot.commands.DefaultDrive;
 import frc.robot.commands.WinchUnwind;
 import frc.robot.commands.WinchRaise;
@@ -78,6 +79,7 @@ public class RobotContainer {
   private final Hooks m_hooks = new Hooks();
 
   private final AutonomousCommand m_autoCommand = new AutonomousCommand(m_drive, m_shooter, m_conveyorBelt);
+  private final AutonomousCommandAlt m_autoAlt = new AutonomousCommandAlt(m_drive, m_shooter, m_conveyorBelt);
 
   // Set up Joystick and Button Board.
   private Joystick m_stick = new Joystick(0);
@@ -160,6 +162,7 @@ public class RobotContainer {
    */
   public Command getAutonomousCommand() {
     // An ExampleCommand will run in autonomous
-    return m_autoCommand;
+    //return m_autoCommand;
+    return m_autoAlt;
   }
 }
